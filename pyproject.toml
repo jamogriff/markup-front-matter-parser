@@ -1,0 +1,40 @@
+[project]
+name = "md-front-matter-parser"
+version = "0.6.0"
+description = "Simple front matter parser for Markdown files"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  { name="Jamison Griffith", email="jamison.griffith@gmail.com" }
+]
+requires-python = ">= 3.10"
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Markup",
+]
+keywords = ["markdown", "front matter", "parser", "development"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+# TODO
+Homepage = "https://github.com/"
+Documentation = "https://github.com/"
+Source = "https://github.com/<user>/<repo>"
+Bug Tracker = "https://github.com/<user>/<repo>/issues"
+
+[project.optional-dependencies]
+code_style = ["black"]
+testing = ["pytest"]
+typing = ["mypy"]
+
+# TODO test these out
+[tool.mypy]
+show_error_codes = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+strict = true
