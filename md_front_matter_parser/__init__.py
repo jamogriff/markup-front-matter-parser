@@ -1,4 +1,4 @@
-from .markdown_parser import MarkdownParser
+from .markdown_front_matter_parser import MarkdownFrontMatterParser
 from .markdown_file import MarkdownFile
 from .invalid_markdown_exception import InvalidMarkdownException
 

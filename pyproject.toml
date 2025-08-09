@@ -25,7 +25,6 @@ build-backend = "setuptools.build_meta"
 Homepage = "https://github.com/"
 Documentation = "https://github.com/"
 Source = "https://github.com/<user>/<repo>"
-Bug Tracker = "https://github.com/<user>/<repo>/issues"
 
 [project.optional-dependencies]
 code_style = ["black"]

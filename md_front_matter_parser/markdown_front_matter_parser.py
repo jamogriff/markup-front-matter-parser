@@ -1,20 +1,26 @@
 import re
-from songlist.markdown.markdown_file import MarkdownFile
-from songlist.markdown.invalid_markdown_exception import InvalidMarkdownException
+from .markdown_file import MarkdownFile
+from .invalid_markdown_exception import InvalidMarkdownException
 
-class MarkdownParser:
-    """Parses a markdown (.md) file with simple (no multi-line) front matter. For example:
-    ---
-    name: Crazy Train
-    artist: Ozzy Osbourne
-    ---
-    # This is content. Hooray for content
-
-    Would be parsed into a Markdown object with a front_matter property
-    a body property with a reference back to the file path.
-    """
+class MarkdownFrontMatterParser:
 
     def parse(self, file_path: str) -> MarkdownFile:
+        """Parses a markdown (.md) file with simple (no multi-line) front matter.
+        For example, parsing the file crazy_train.md:
+        ---
+        name: Crazy Train
+        artist: Ozzy Osbourne
+        ---
+        # This is content.
+        Hooray for content
+
+        Would result in a MarkdownFile object composed of:
+        - A front_matter property: {'name': 'Crazy Train', 'artist': 'Ozzy Osbourne'}
+        - A body property: "# This is content.\nHooray for content\n"
+        - A path property: crazy_train.md
+
+        Throws an informative InvalidMarkdownException if file cannot be parsed.
+        """
         with open(file_path, "r") as file:
             self._assert_markdown_file(file.name)
             file_lines = file.readlines()
@@ -30,7 +36,7 @@ class MarkdownParser:
 
         # We can deduce that the line for the file's
         # body starts at index of (number of properties + 1 '---')
-        # Note that we popped the first '---' off
+        # Note that we popped the first '---' off at beginning of method
         body_start_index = len(front_matter.keys()) + 1
         body = self._parse_body(file_lines, body_start_index)
 
