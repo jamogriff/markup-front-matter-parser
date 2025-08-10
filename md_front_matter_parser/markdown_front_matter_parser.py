@@ -37,7 +37,7 @@ class MarkdownFrontMatterParser:
         try:
             front_matter = self._parse_front_matter(file_lines)
         except ValueError as e:
-            raise InvalidMarkdownError(file_path, e)
+            raise InvalidMarkdownError(file_path, str(e)) from e
 
         # We can deduce that the line for the file's
         # body starts at index of (number of properties + 1 '---')
@@ -47,7 +47,7 @@ class MarkdownFrontMatterParser:
 
         return MarkdownFile(file_path, front_matter, body)
 
-    def _parse_front_matter(self, file_lines: list) -> dict:
+    def _parse_front_matter(self, file_lines: list[str]) -> dict[str, str]:
         front_matter = {}
         for line_index, line in enumerate(file_lines):
             front_matter_end = re.search("---", line)
@@ -64,7 +64,7 @@ class MarkdownFrontMatterParser:
 
         return front_matter
 
-    def _parse_body(self, file_lines: list, body_start_index: int) -> str:
+    def _parse_body(self, file_lines: list[str], body_start_index: int) -> str:
         body_lines = file_lines[body_start_index:]
 
         body = ""
@@ -73,7 +73,7 @@ class MarkdownFrontMatterParser:
 
         return body
 
-    def _assert_markdown_file(self, file_name) -> str:
+    def _assert_markdown_file(self, file_name: str) -> None:
         """Asserts provided file name has an .md extension"""
         match = re.search(r"\.(.+)", file_name)
 

@@ -7,5 +7,5 @@ class MarkdownFile:
     front matter and a reference back to the file path"""
 
     path: str
-    front_matter: dict
+    front_matter: dict[str, str]
     body: str
