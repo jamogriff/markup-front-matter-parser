@@ -1,9 +1,10 @@
 import re
 from .markdown_file import MarkdownFile
 from .invalid_markdown_error import InvalidMarkdownError
+from .abstract_front_matter_parser import AbstractFrontMatterParser
 
 
-class MarkdownFrontMatterParser:
+class MarkdownFrontMatterParser(AbstractFrontMatterParser):
 
     def parse(self, file_path: str) -> MarkdownFile:
         """Parses a markdown (.md) file with simple (no multi-line) front matter.
@@ -46,23 +47,6 @@ class MarkdownFrontMatterParser:
         body = self._parse_body(file_lines, body_start_index)
 
         return MarkdownFile(file_path, front_matter, body)
-
-    def _parse_front_matter(self, file_lines: list[str]) -> dict[str, str]:
-        front_matter = {}
-        for line_index, line in enumerate(file_lines):
-            front_matter_end = re.search("---", line)
-
-            if front_matter_end:
-                break
-
-            key_pair = re.split(": ", line)
-
-            if len(key_pair) != 2:
-                raise ValueError(f"Unable to parse key pair on line {line_index + 1}")
-
-            front_matter[key_pair[0]] = key_pair[1].rstrip("\n")
-
-        return front_matter
 
     def _parse_body(self, file_lines: list[str], body_start_index: int) -> str:
         body_lines = file_lines[body_start_index:]
