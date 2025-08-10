@@ -2,6 +2,7 @@ import re
 from .markdown_file import MarkdownFile
 from .invalid_markdown_error import InvalidMarkdownError
 
+
 class MarkdownFrontMatterParser:
 
     def parse(self, file_path: str) -> MarkdownFile:
@@ -27,11 +28,11 @@ class MarkdownFrontMatterParser:
             file_lines = file.readlines()
 
         if len(file_lines) == 0:
-            raise InvalidMarkdownError(file_path, 'Empty file encountered')
+            raise InvalidMarkdownError(file_path, "Empty file encountered")
 
         match = re.search("---", file_lines.pop(0))
         if not match:
-            raise InvalidMarkdownError(file_path, 'Malformed front matter encountered')
+            raise InvalidMarkdownError(file_path, "Malformed front matter encountered")
 
         try:
             front_matter = self._parse_front_matter(file_lines)
@@ -66,7 +67,7 @@ class MarkdownFrontMatterParser:
     def _parse_body(self, file_lines: list, body_start_index: int) -> str:
         body_lines = file_lines[body_start_index:]
 
-        body = ''
+        body = ""
         for line in body_lines:
             body += line
 
@@ -74,11 +75,12 @@ class MarkdownFrontMatterParser:
 
     def _assert_markdown_file(self, file_name) -> str:
         """Asserts provided file name has an .md extension"""
-        match = re.search(r'\.(.+)', file_name)
+        match = re.search(r"\.(.+)", file_name)
 
         if not match:
             raise InvalidMarkdownError(file_name, "Missing file extension")
 
         if match.group() != ".md":
-            raise InvalidMarkdownError(file_name, f"Cannot parse a {match.group()} file")
-
+            raise InvalidMarkdownError(
+                file_name, f"Cannot parse a {match.group()} file"
+            )
