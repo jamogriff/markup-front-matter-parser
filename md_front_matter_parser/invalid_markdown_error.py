@@ -1,4 +1,4 @@
-class InvalidMarkdownException(Exception):
+class InvalidMarkdownError(Exception):
 
     def __init__(self, file_path: str, message: str = "Invalid markdown file encountered"):
         self.file_path = file_path
