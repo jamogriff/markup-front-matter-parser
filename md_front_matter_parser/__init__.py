@@ -1,6 +1,6 @@
-from .markdown_front_matter_parser import MarkdownFrontMatterParser
-from .markdown_file import MarkdownFile
-from .invalid_markdown_error import InvalidMarkdownError
+from .front_matter_parser_factory import FrontMatterParserFactory
+from .markup_file import MarkupFile
+from .invalid_front_matter_error import InvalidFrontMatterError
 
 __version__ = "0.6.0"
-__all__ = ("MarkdownFrontMatterParser", "MarkdownFile", "InvalidMarkdownError")
+__all__ = ("FrontMatterParserFactory", "MarkupFile", "InvalidFrontMatterError")
