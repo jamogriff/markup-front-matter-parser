@@ -1,7 +1,7 @@
 [project]
-name = "md-front-matter-parser"
+name = "markup-front-matter-parser"
 version = "0.6.0"
-description = "Simple front matter parser for Markdown files"
+description = "OOP-y front matter parser for markup files"
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
@@ -14,7 +14,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Text Processing :: Markup",
 ]
-keywords = ["markdown", "front matter", "parser", "development"]
+keywords = ["markup", "front matter", "parser", "markdown", "html", "development"]
 
 [build-system]
 requires = ["setuptools", "wheel"]
@@ -31,7 +31,6 @@ code_style = ["black"]
 testing = ["pytest"]
 typing = ["mypy"]
 
-# TODO test these out
 [tool.mypy]
 show_error_codes = true
 warn_unused_ignores = true
