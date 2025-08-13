@@ -14,13 +14,6 @@ class TestFrontMatterExceptions(unittest.TestCase):
 
         self.assertRaises(InvalidFrontMatterError, parser.parse)
 
-    # TODO: move to factory tests, since error is thrown when creating the parser
-    def test_raises_exception_for_non_markup_files(self):
-        file_path = self.fixtures_dir / 'text_file.txt'
-        parser = self.parser_factory.get_parser(file_path)
-
-        self.assertRaises(ValueError, parser.parse)
-
     def test_raises_exception_for_empty_file(self):
         file_path = self.fixtures_dir / 'empty_file.md'
         parser = self.parser_factory.get_parser(file_path)
