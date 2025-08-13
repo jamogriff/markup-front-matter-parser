@@ -1,7 +1,7 @@
 import unittest
 from pathlib import Path
-from md_front_matter_parser.front_matter_parser_factory import FrontMatterParserFactory
-from md_front_matter_parser.invalid_front_matter_error import InvalidFrontMatterError
+from markup_front_matter_parser.front_matter_parser_factory import FrontMatterParserFactory
+from markup_front_matter_parser.invalid_front_matter_error import InvalidFrontMatterError
 
 class TestFrontMatterExceptions(unittest.TestCase):
     def setUp(self):

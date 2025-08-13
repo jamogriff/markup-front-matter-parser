@@ -1,6 +1,6 @@
 from .abstract_front_matter_parser import AbstractFrontMatterParser
 from ..file_format import FileFormat
-from ..markup_content import MarkupContent
+from ..models.markup_content import MarkupContent
 
 class MarkdownFrontMatterParser(AbstractFrontMatterParser):
 

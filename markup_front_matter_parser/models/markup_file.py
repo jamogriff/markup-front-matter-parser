@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from .file_format import FileFormat
+from ..file_format import FileFormat
 from .markup_content import MarkupContent
 
 

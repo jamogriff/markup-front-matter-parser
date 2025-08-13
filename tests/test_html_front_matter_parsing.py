@@ -1,6 +1,6 @@
 import unittest
 from pathlib import Path
-from md_front_matter_parser.front_matter_parser_factory import FrontMatterParserFactory
+from markup_front_matter_parser.front_matter_parser_factory import FrontMatterParserFactory
 
 class TestHTMLFrontMatterParsing(unittest.TestCase):
     def setUp(self):
@@ -22,6 +22,6 @@ class TestHTMLFrontMatterParsing(unittest.TestCase):
         html_file = html_parser.parse()
 
         self.assertEqual(html_file.path, file_path)
-        self.assertEqual(html_file.content.raw_content, '\n<h1>Onion Ringz</h1>\n<p>Love that content</p>\n')
+        self.assertEqual(html_file.content.raw, '\n<h1>Onion Ringz</h1>\n<p>Love that content</p>\n')
         self.assertEqual(html_file.front_matter, {'category': 'cooking', 'title': 'Lord of the Rings'})
 

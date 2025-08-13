@@ -1,8 +1,8 @@
 import unittest
 from pathlib import Path
-from md_front_matter_parser.front_matter_parser_factory import FrontMatterParserFactory
-from md_front_matter_parser.parsers.markdown_front_matter_parser import MarkdownFrontMatterParser
-from md_front_matter_parser.parsers.html_front_matter_parser import HTMLFrontMatterParser
+from markup_front_matter_parser.front_matter_parser_factory import FrontMatterParserFactory
+from markup_front_matter_parser.parsers.markdown_front_matter_parser import MarkdownFrontMatterParser
+from markup_front_matter_parser.parsers.html_front_matter_parser import HTMLFrontMatterParser
 
 class TestParserFactory(unittest.TestCase):
 

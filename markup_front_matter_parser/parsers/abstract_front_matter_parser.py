@@ -1,8 +1,8 @@
 import re
 from abc import ABC, abstractmethod
 from ..invalid_front_matter_error import InvalidFrontMatterError
-from ..markup_file import MarkupFile
-from ..markup_content import MarkupContent
+from ..models.markup_file import MarkupFile
+from ..models.markup_content import MarkupContent
 from ..file_format import FileFormat
 
 class AbstractFrontMatterParser(ABC):
@@ -24,10 +24,17 @@ class AbstractFrontMatterParser(ABC):
 
     @abstractmethod
     def _parse_content(self, file_lines: list[str], content_start_index: int) -> MarkupFile | None:
+        """Parse the content of a given file.
+
+        In its current state this package doesn't do anything special here,
+        but in the future each parser subclass could tokenize and parse their
+        respective file content.
+        """
+
         raise NotImplementedError('Subclasses must implement this method')
 
     def parse(self) -> MarkupFile:
-        """Parses a markdown (.md) file with simple (no multi-line) front matter.
+        """Parses a markup file with simple (no multi-line) front matter.
 
         For example, parsing the file crazy_train.md:
         ---
@@ -38,9 +45,10 @@ class AbstractFrontMatterParser(ABC):
         Hooray for content
 
         Would result in a MarkupFile object composed of:
-        - A front_matter property: {'name': 'Crazy Train', 'artist': 'Ozzy Osbourne'}
-        - TODO: update A content property: "# This is content.\nHooray for content\n"
-        - A path property: crazy_train.md
+        - A front_matter attribute: {"name": "Crazy Train", "artist": "Ozzy Osbourne"}
+        - A content attribute (an instance of MarkupContent): "# This is content.\nHooray for content\n"
+        - A path attribute: "crazy_train.md"
+        - A file_format attribute: FileFormat.MARKDOWN
 
         Raises:
             InvalidFrontMatterError: If front matter cannot be parsed (message will explain exact cause).

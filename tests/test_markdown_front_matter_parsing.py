@@ -1,6 +1,6 @@
 import unittest
 from pathlib import Path
-from md_front_matter_parser.front_matter_parser_factory import FrontMatterParserFactory
+from markup_front_matter_parser.front_matter_parser_factory import FrontMatterParserFactory
 
 class TestMarkdownFrontMatterParsing(unittest.TestCase):
     def setUp(self):
@@ -22,6 +22,6 @@ class TestMarkdownFrontMatterParsing(unittest.TestCase):
         md_file = md_parser.parse()
 
         self.assertEqual(md_file.path, file_path)
-        self.assertEqual(md_file.content.raw_content, 'data lies here\n<h1>hello world</h1>\n\nteehee\n')
+        self.assertEqual(md_file.content.raw, 'data lies here\n<h1>hello world</h1>\n\nteehee\n')
         self.assertEqual(md_file.front_matter, {'name': 'Wild World', 'artist': 'Cat Stevens', 'skill': '2'})
 
