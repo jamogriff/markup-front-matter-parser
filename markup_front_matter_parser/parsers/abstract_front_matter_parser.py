@@ -23,7 +23,7 @@ class AbstractFrontMatterParser(ABC):
         raise NotImplementedError('Subclasses must implement this property')
 
     @abstractmethod
-    def _parse_content(self, file_lines: list[str], content_start_index: int) -> MarkupFile | None:
+    def _parse_content(self, file_lines: list[str], content_start_index: int) -> MarkupContent | None:
         """Parse the content of a given file.
 
         In its current state this package doesn't do anything special here,
