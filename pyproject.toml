@@ -1,6 +1,6 @@
 [project]
 name = "markup-front-matter-parser"
-version = "0.6.0"
+dynamic = ["version"]
 description = "OOP-y front matter parser for markup files"
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -10,21 +10,29 @@ authors = [
 requires-python = ">= 3.10"
 classifiers = [
     "Intended Audience :: Developers",
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
     "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.15",
+    "Topic :: File Formats",
+    "Topic :: Software Development",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Text Processing :: Markup",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Topic :: Text Processing :: Markup :: Markdown",
 ]
-keywords = ["markup", "front matter", "parser", "markdown", "html", "development"]
+keywords = ["markup", "front matter", "parser", "markdown", "html", "jekyll", "development"]
 
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools""]
 build-backend = "setuptools.build_meta"
 
 [project.urls]
-# TODO
-Homepage = "https://github.com/"
-Documentation = "https://github.com/"
-Source = "https://github.com/<user>/<repo>"
+Homepage = "https://github.com/jamogriff/markup-front-matter-parser"
+Documentation = "https://github.com/jamogriff/markup-front-matter-parser/blob/main/README.md"
+Source = "https://github.com/jamogriff/markup-front-matter-parser"
+Issues = "https://github.com/jamogriff/markup-front-matter-parser/issues"
 
 [project.optional-dependencies]
 code_style = ["black"]
