@@ -1,6 +1,6 @@
 # Markup Front Matter Parser
 
-This is a Python package for parsing the Front Matter of markup files (e.g. .md, .html).
+This is an OOP-y Python package for parsing the Front Matter of markup files (e.g. .md, .html).
 Front Matter is a `YAML` snippet at the top of a markup file that stores metadata
 that is used commonly in [Jekyll](https://jekyllrb.com/docs/front-matter/) static sites.
 

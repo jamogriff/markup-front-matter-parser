@@ -1,7 +1,7 @@
 [project]
 name = "markup-front-matter-parser"
 version = "0.6.0"
-description = "A front matter parser for markup files"
+description = "An OOP-y front matter parser for markup files"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
